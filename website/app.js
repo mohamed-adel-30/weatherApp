@@ -18,10 +18,10 @@ formSubmitWeather.addEventListener('submit', (e) => {
     };
 
     // All Api Information
-    let apiKey = 'abfdb6607d48d78c9bc9e74abfa87f0e';
-    console.log(apiKey);
+    const apiKey = 'abfdb6607d48d78c9bc9e74abfa87f0e';
+    
     // Get Api Weather App With My api Key
-    let apiInformation = async function() {
+    const apiInformation = async function() {
         await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${weatherObj.zipCode},us&appid=${apiKey}`, {
                 method: "GET"
             })
@@ -34,7 +34,7 @@ formSubmitWeather.addEventListener('submit', (e) => {
                 }
                 let temp = data.main.temp;
                 // Post Data to Api 
-                let addData = async function() {
+                const addData = async function() {
                     return await fetch(`http://localhost:8000/postData`, {
                             method: "POST",
                             headers: { 'Content-Type': 'application/json' },
